@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Project.Conf.Options
 {
-    public class AppUser : BaseEntity
+    public class AppUserProfileConfiguration : BaseConfiguration<AppUserProfile>
     {
+
     }
 }
