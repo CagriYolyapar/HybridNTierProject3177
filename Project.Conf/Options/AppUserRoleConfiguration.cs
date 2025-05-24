@@ -13,6 +13,9 @@ namespace Project.Conf.Options
         public override void Configure(EntityTypeBuilder<AppUserRole> builder)
         {
             base.Configure(builder);
+
+            builder.HasKey(x => x.Id);
+
             builder.HasIndex(x => new
             {
                 x.UserId,

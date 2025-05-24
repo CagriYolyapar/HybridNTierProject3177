@@ -15,7 +15,7 @@ namespace Project.Dal.Repositories.Concretes
     {
         readonly MyContext _context;
 
-      
+        
 
 
         public BaseRepository(MyContext context)
@@ -55,7 +55,24 @@ namespace Project.Dal.Repositories.Concretes
 
         public IQueryable<T> Where(Expression<Func<T, bool>> exp)
         {
-            return _context.Set<T>().Where(exp);
+
+
+
+
+            return  _context.Set<T>().Where(exp);
         }
+
+
+        //Where
+
+
+        // _context.Categories.Where(x => x.CategoryName == "Beverages")
+
+        //x => 
+
+        //_context.Categories.Find(1);
+     
+       
+       
     }
 }

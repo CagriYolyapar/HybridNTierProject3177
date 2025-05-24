@@ -20,7 +20,7 @@ namespace Project.Dal.ContextClasses
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
+            base.OnModelCreating(builder); //bu satırı sona yazmayın yoksa foreign keyleri tekrar acar
             builder.ApplyConfiguration(new AppUserConfiguration());
             builder.ApplyConfiguration(new AppUserProfileConfiguration());
             builder.ApplyConfiguration(new CategoryConfiguration());
@@ -37,6 +37,9 @@ namespace Project.Dal.ContextClasses
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<AppRole> AppRoles { get; set; }
+        public DbSet<AppUserRole> AppUserRoles { get; set; }
+
 
     }
 }

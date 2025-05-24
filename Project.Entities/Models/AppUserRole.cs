@@ -11,7 +11,7 @@ namespace Project.Entities.Models
 {
     public class AppUserRole : IdentityUserRole<int>, IEntity
     {
-
+       
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }

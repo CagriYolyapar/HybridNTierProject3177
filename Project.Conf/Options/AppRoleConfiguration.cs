@@ -14,6 +14,8 @@ namespace Project.Conf.Options
         {
             base.Configure(builder);
 
+            builder.HasMany(x => x.UserRoles).WithOne(x => x.Role).HasForeignKey(x => x.RoleId).IsRequired();
+
         }
     }
 }
