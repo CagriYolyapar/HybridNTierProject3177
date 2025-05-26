@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Project.Dal.ContextClasses;
 using Project.Dal.Repositories.Abstracts;
 using Project.Entities.Interfaces;
@@ -11,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace Project.Dal.Repositories.Concretes
 {
-    public abstract class BaseRepository<T>  : IRepository<T> where T : class, IEntity
+    public abstract class BaseRepository<T> : IRepository<T> where T : class, IEntity
     {
         readonly MyContext _context;
 
-        
+
 
 
         public BaseRepository(MyContext context)
@@ -36,6 +37,8 @@ namespace Project.Dal.Repositories.Concretes
             await _context.SaveChangesAsync();
         }
 
+
+
         public async Task<List<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
@@ -46,7 +49,12 @@ namespace Project.Dal.Repositories.Concretes
             return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task UpdateAsync(T originalEntity,T newEntity)
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateAsync(T originalEntity, T newEntity)
         {
             //_context.Entry(originalEntity).CurrentValues.SetValues(newEntity);
             _context.Set<T>().Entry(originalEntity).CurrentValues.SetValues(newEntity);
@@ -59,7 +67,7 @@ namespace Project.Dal.Repositories.Concretes
 
 
 
-            return  _context.Set<T>().Where(exp);
+            return _context.Set<T>().Where(exp);
         }
 
 
@@ -71,8 +79,8 @@ namespace Project.Dal.Repositories.Concretes
         //x => 
 
         //_context.Categories.Find(1);
-     
-       
-       
+
+
+
     }
 }

@@ -18,6 +18,8 @@ namespace Project.Dal.Repositories.Abstracts
         //Queries
 
         Task<List<T>> GetAllAsync();
+        
+        
         Task<T> GetByIdAsync(int id);
 
         IQueryable<T> Where(Expression<Func<T,bool>> exp);
@@ -42,6 +44,7 @@ namespace Project.Dal.Repositories.Abstracts
         Task CreateAsync(T entity);
         Task UpdateAsync(T originalEntity,T  newEntity);
         Task DeleteAsync(T entity);
+        Task SaveChangesAsync();
 
     }
 }
