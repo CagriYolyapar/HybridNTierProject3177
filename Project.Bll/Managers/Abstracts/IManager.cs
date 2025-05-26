@@ -24,7 +24,7 @@ namespace Project.Bll.Managers.Abstracts
         //BL for Commands
         Task CreateAsync(T entity);
         Task CreateRangeAsync(List<T> entities);
-        Task UpdateAsync(T originalEntity,T newEntity);
+        Task UpdateAsync(T newEntity);
         Task SoftDelete(int id);
         Task<string> HardDelete(int id);
     }

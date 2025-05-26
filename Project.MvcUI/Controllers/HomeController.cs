@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Project.Dal.Repositories.Abstracts;
-using Project.Dal.Repositories.Concretes;
+
 using Project.Entities.Models;
 using Project.MvcUI.Models;
 using System.Diagnostics;
@@ -10,8 +9,9 @@ namespace Project.MvcUI.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-       
-       
+        
+        
+        
         public HomeController(ILogger<HomeController> logger)
         {
             

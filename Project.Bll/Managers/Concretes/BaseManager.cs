@@ -14,6 +14,7 @@ namespace Project.Bll.Managers.Concretes
     {
         readonly IRepository<T> _repository;
 
+        
         protected BaseManager(IRepository<T> repository)
         {
             _repository = repository;
@@ -33,7 +34,7 @@ namespace Project.Bll.Managers.Concretes
 
         public async Task<List<T>> FirstDatas(int count)
         {
-           
+
 
             List<T> values = await _repository.GetAllAsync();
             return values.OrderBy(x => x.CreatedDate).Take(count).ToList();
@@ -62,13 +63,13 @@ namespace Project.Bll.Managers.Concretes
 
         public List<T> GetUpdateds()
         {
-            return _repository.Where(x => x.Status == Entities.Enums.DataStatus.Updated).ToList();    
+            return _repository.Where(x => x.Status == Entities.Enums.DataStatus.Updated).ToList();
         }
 
         public async Task<string> HardDelete(int id)
         {
             T entity = await GetByIdAsync(id);
-            if(entity.Status == Entities.Enums.DataStatus.Deleted)
+            if (entity.Status == Entities.Enums.DataStatus.Deleted)
             {
                 await _repository.DeleteAsync(entity);
                 return $"Silme basarılıdır...Silinen id {entity.Id}";
@@ -79,27 +80,30 @@ namespace Project.Bll.Managers.Concretes
         public async Task<List<T>> LastDatas(int count)
         {
             List<T> values = await _repository.GetAllAsync();
-            return values.OrderByDescending(x=> x.CreatedDate).Take(count).ToList();
+            return values.OrderByDescending(x => x.CreatedDate).Take(count).ToList();
         }
 
         public async Task SoftDelete(int id)
         {
             T entity = await GetByIdAsync(id);
-            
+
             entity.DeletedDate = DateTime.Now;
             entity.Status = Entities.Enums.DataStatus.Deleted;
             await _repository.SaveChangesAsync();
 
         }
 
-        public Task UpdateAsync(T originalEntity, T newEntity)
+        public async Task UpdateAsync(T newEntity)
         {
-            throw new NotImplementedException();
+            T originalEntity = await GetByIdAsync(newEntity.Id);
+            originalEntity.Status = Entities.Enums.DataStatus.Updated;
+            originalEntity.UpdatedDate = DateTime.Now;
+            await _repository.UpdateAsync(originalEntity, newEntity);
         }
 
         public IQueryable<T> Where(Expression<Func<T, bool>> exp)
         {
-            throw new NotImplementedException();
+            return _repository.Where(exp);
         }
     }
 }
