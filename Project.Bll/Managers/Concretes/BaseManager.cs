@@ -1,5 +1,6 @@
 ﻿using Project.Bll.Managers.Abstracts;
 using Project.Dal.Repositories.Abstracts;
+using Project.Dal.Repositories.Concretes;
 using Project.Entities.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace Project.Bll.Managers.Concretes
             foreach (T entity in entities) await CreateAsync(entity);
         }
 
-        public async Task<List<T>> FirstDatas(int count)
+        public async Task<List<T>> GetFirstDatasAsync(int count)
         {
 
 
@@ -66,7 +67,7 @@ namespace Project.Bll.Managers.Concretes
             return _repository.Where(x => x.Status == Entities.Enums.DataStatus.Updated).ToList();
         }
 
-        public async Task<string> HardDelete(int id)
+        public async Task<string> HardDeleteAsync(int id)
         {
             T entity = await GetByIdAsync(id);
             if (entity.Status == Entities.Enums.DataStatus.Deleted)
@@ -77,13 +78,13 @@ namespace Project.Bll.Managers.Concretes
             return "Sadece pasif verileri silebilirsiniz";
         }
 
-        public async Task<List<T>> LastDatas(int count)
+        public async Task<List<T>> GetLastDatasAsync(int count)
         {
             List<T> values = await _repository.GetAllAsync();
             return values.OrderByDescending(x => x.CreatedDate).Take(count).ToList();
         }
 
-        public async Task SoftDelete(int id)
+        public async Task SoftDeleteAsync(int id)
         {
             T entity = await GetByIdAsync(id);
 

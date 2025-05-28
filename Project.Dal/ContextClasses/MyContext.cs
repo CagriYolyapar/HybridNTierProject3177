@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Project.Conf.Options;
+using Project.Dal.BogusHandling;
 using Project.Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,10 @@ namespace Project.Dal.ContextClasses
             builder.ApplyConfiguration(new OrderDetailConfiguration());
             builder.ApplyConfiguration(new AppRoleConfiguration());
             builder.ApplyConfiguration(new AppUserRoleConfiguration());
+
+            CategoryDataSeed.SeedCategories(builder);
+            ProductDataSeed.SeedProducts(builder);
+            AppUserDataSeed.SeedUsersAndRoles(builder);
         }
 
         public DbSet<AppUser> AppUsers { get; set; }

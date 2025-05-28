@@ -9,6 +9,8 @@
 
 	<ItemGroup>
 
+		<PackageReference Include="Bogus" Version="35.6.3" />
+
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
 			<PrivateAssets>all</PrivateAssets>
@@ -21,7 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Project.Conf\Project.Conf.csproj"/>
+		<ProjectReference Include="..\Project.Conf\Project.Conf.csproj" />
 
 	</ItemGroup>
 
