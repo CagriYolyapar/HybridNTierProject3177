@@ -8,6 +8,7 @@ namespace Project.MvcUI.Models.PureVms.AppUsers
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
+        
 
     }
 }

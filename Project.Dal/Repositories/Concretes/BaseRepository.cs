@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Project.Dal.ContextClasses;
 using Project.Dal.Repositories.Abstracts;
 using Project.Entities.Interfaces;
+using Project.Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,8 @@ namespace Project.Dal.Repositories.Concretes
 
         public async Task DeleteAsync(T entity)
         {
+
+          
             _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
         }

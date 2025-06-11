@@ -11,6 +11,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContextService(); //İşte bu noktadan sonra bir Veritabanı testi yapılır... Farklı katmanlar üzerinden EF Core'u CodeFirst ile ayaga kaldırmaya calısırsanız sistem sizden Set as Startup olarak ayarlanmıs projede Microsoft.EntityFrameworkCore.Design kütüphanesini isteyecektir...
 
+
+
+
 builder.Services.AddIdentityService();
 
 builder.Services.AddRepositoryServices();

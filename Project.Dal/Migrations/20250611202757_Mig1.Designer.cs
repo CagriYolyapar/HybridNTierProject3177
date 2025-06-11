@@ -12,7 +12,7 @@ using Project.Dal.ContextClasses;
 namespace Project.Dal.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20250528200204_Mig1")]
+    [Migration("20250611202757_Mig1")]
     partial class Mig1
     {
         /// <inheritdoc />
@@ -161,7 +161,7 @@ namespace Project.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "02a98198-6a5d-4236-ba5e-ff1d5d7f13b7",
+                            ConcurrencyStamp = "70794f6d-b4d7-4956-b2ca-4d112f1189ed",
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin",
                             NormalizedName = "ADMIN",
@@ -260,17 +260,17 @@ namespace Project.Dal.Migrations
                             Id = 1,
                             AccessFailedCount = 0,
                             ActivationCode = new Guid("00000000-0000-0000-0000-000000000000"),
-                            ConcurrencyStamp = "306f19d9-0ab6-4787-ae78-4247ff8c5652",
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 390, DateTimeKind.Local).AddTicks(6175),
+                            ConcurrencyStamp = "1601716c-0397-4836-be4e-d6420d031bba",
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 256, DateTimeKind.Local).AddTicks(1859),
                             Email = "cagri@gmail.com",
                             EmailConfirmed = true,
                             IsBanned = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "CAGRI@GMAIL.COM",
                             NormalizedUserName = "CGR123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEP+qGcOkZj7fQXiBRc4zbM0vzeNmUSsm7csXSwmpwxeD8Qn/oP2ooktFkyI3QJAxaw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDF0G1Cyb79SV76kY9wFebjFM7C37YOI1XmcG0l0c/ZY8cEJRfN1GIaUulkRsIAuZg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c02b0a8c-e23d-4563-b6d0-1921289abce1",
+                            SecurityStamp = "fd3e5b2d-d180-4c40-a62e-8294649d6ba3",
                             Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "cgr123"
@@ -398,81 +398,81 @@ namespace Project.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            CategoryName = "Jewelery",
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 337, DateTimeKind.Local).AddTicks(8985),
-                            Description = "Odit rem mi mi inventore ea otobüs yapacakmış sarmal cezbelendi.",
+                            CategoryName = "Garden",
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(7772),
+                            Description = "Numquam yapacakmış doloremque yazın koyun corporis adresini ipsa ki mi.",
                             Status = 1
                         },
                         new
                         {
                             Id = 2,
-                            CategoryName = "Electronics",
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 337, DateTimeKind.Local).AddTicks(9085),
-                            Description = "Dolorem nisi aperiam molestiae ama karşıdakine umut quis gitti adanaya.",
+                            CategoryName = "Movies",
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(7849),
+                            Description = "Quia aliquid voluptatem fugit koşuyorlar alias makinesi salladı aut enim.",
                             Status = 1
                         },
                         new
                         {
                             Id = 3,
-                            CategoryName = "Games",
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 337, DateTimeKind.Local).AddTicks(9244),
-                            Description = "Illo quia perferendis dignissimos velit ullam veniam et açılmadan balıkhaneye.",
+                            CategoryName = "Shoes",
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(7904),
+                            Description = "Illo vitae un dağılımı laboriosam dolayı blanditiis dolor doloremque ab.",
                             Status = 1
                         },
                         new
                         {
                             Id = 4,
-                            CategoryName = "Movies",
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 337, DateTimeKind.Local).AddTicks(9365),
-                            Description = "Voluptas autem sequi et dicta şafak çorba sarmal bundan ve.",
+                            CategoryName = "Automotive",
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(7951),
+                            Description = "Voluptas dolores ekşili beğendim ex sed sit voluptatem vitae lambadaki.",
                             Status = 1
                         },
                         new
                         {
                             Id = 5,
-                            CategoryName = "Beauty",
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 337, DateTimeKind.Local).AddTicks(9431),
-                            Description = "Lambadaki alias ipsam orta deleniti explicabo koyun öyle illo dolayı.",
+                            CategoryName = "Automotive",
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(8023),
+                            Description = "Şafak minima aut voluptatem ekşili consequatur aliquid autem rem kalemi.",
                             Status = 1
                         },
                         new
                         {
                             Id = 6,
-                            CategoryName = "Tools",
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 337, DateTimeKind.Local).AddTicks(9502),
-                            Description = "Aut ex telefonu beğendim okuma mıknatıslı vel masanın dignissimos explicabo.",
+                            CategoryName = "Clothing",
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(8096),
+                            Description = "Voluptas esse modi velit sıfat gitti sıla ad kutusu fugit.",
                             Status = 1
                         },
                         new
                         {
                             Id = 7,
-                            CategoryName = "Jewelery",
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 337, DateTimeKind.Local).AddTicks(9571),
-                            Description = "Enim aspernatur sokaklarda corporis quae ducimus exercitationem ut çorba ve.",
+                            CategoryName = "Industrial",
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(8143),
+                            Description = "Qui ut nisi layıkıyla nostrum autem kapının dignissimos quasi adanaya.",
                             Status = 1
                         },
                         new
                         {
                             Id = 8,
-                            CategoryName = "Outdoors",
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 337, DateTimeKind.Local).AddTicks(9640),
-                            Description = "Düşünüyor masaya eos mi esse odit değerli reprehenderit quis lambadaki.",
+                            CategoryName = "Games",
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(8186),
+                            Description = "Reprehenderit kutusu adanaya et nihil kulu consequuntur quis illo sequi.",
                             Status = 1
                         },
                         new
                         {
                             Id = 9,
-                            CategoryName = "Toys",
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 337, DateTimeKind.Local).AddTicks(9741),
-                            Description = "Enim karşıdakine layıkıyla veritatis mi tv ea domates duyulmamış illo.",
+                            CategoryName = "Grocery",
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(8228),
+                            Description = "Dolore nesciunt sit quae ullam veniam camisi ea velit neque.",
                             Status = 1
                         },
                         new
                         {
                             Id = 10,
-                            CategoryName = "Electronics",
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 337, DateTimeKind.Local).AddTicks(9807),
-                            Description = "Için eaque gazete balıkhaneye çarpan eos labore açılmadan koştum ratione.",
+                            CategoryName = "Sports",
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(8293),
+                            Description = "Sevindi quae tempora ea ipsum sit okuma vitae doğru sinema.",
                             Status = 1
                         });
                 });
@@ -613,110 +613,110 @@ namespace Project.Dal.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 338, DateTimeKind.Local).AddTicks(338),
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(8696),
                             ImagePath = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22100%22%20height%3D%22100%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22grey%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2250%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E100x100%3C%2Ftext%3E%3C%2Fsvg%3E",
-                            ProductName = "Refined Rubber Table",
+                            ProductName = "Rustic Rubber Fish",
                             Status = 1,
-                            UnitPrice = 715.64m,
+                            UnitPrice = 252.52m,
                             UnitsInStock = 100
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 338, DateTimeKind.Local).AddTicks(494),
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(8831),
                             ImagePath = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22100%22%20height%3D%22100%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22grey%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2250%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E100x100%3C%2Ftext%3E%3C%2Fsvg%3E",
-                            ProductName = "Sleek Granite Bike",
+                            ProductName = "Handmade Fresh Chips",
                             Status = 1,
-                            UnitPrice = 784.57m,
+                            UnitPrice = 303.93m,
                             UnitsInStock = 100
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 338, DateTimeKind.Local).AddTicks(607),
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(8925),
                             ImagePath = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22100%22%20height%3D%22100%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22grey%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2250%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E100x100%3C%2Ftext%3E%3C%2Fsvg%3E",
-                            ProductName = "Licensed Rubber Gloves",
+                            ProductName = "Practical Fresh Mouse",
                             Status = 1,
-                            UnitPrice = 74.84m,
+                            UnitPrice = 871.95m,
                             UnitsInStock = 100
                         },
                         new
                         {
                             Id = 4,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 338, DateTimeKind.Local).AddTicks(770),
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(9043),
                             ImagePath = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22100%22%20height%3D%22100%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22grey%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2250%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E100x100%3C%2Ftext%3E%3C%2Fsvg%3E",
-                            ProductName = "Generic Metal Bacon",
+                            ProductName = "Sleek Granite Pizza",
                             Status = 1,
-                            UnitPrice = 166.27m,
+                            UnitPrice = 929.81m,
                             UnitsInStock = 100
                         },
                         new
                         {
                             Id = 5,
                             CategoryId = 5,
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 338, DateTimeKind.Local).AddTicks(899),
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(9127),
                             ImagePath = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22100%22%20height%3D%22100%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22grey%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2250%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E100x100%3C%2Ftext%3E%3C%2Fsvg%3E",
-                            ProductName = "Ergonomic Fresh Tuna",
+                            ProductName = "Rustic Metal Shirt",
                             Status = 1,
-                            UnitPrice = 604.15m,
+                            UnitPrice = 337.49m,
                             UnitsInStock = 100
                         },
                         new
                         {
                             Id = 6,
                             CategoryId = 6,
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 338, DateTimeKind.Local).AddTicks(1059),
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(9237),
                             ImagePath = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22100%22%20height%3D%22100%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22grey%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2250%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E100x100%3C%2Ftext%3E%3C%2Fsvg%3E",
-                            ProductName = "Intelligent Rubber Bacon",
+                            ProductName = "Incredible Plastic Pizza",
                             Status = 1,
-                            UnitPrice = 551.76m,
+                            UnitPrice = 390.87m,
                             UnitsInStock = 100
                         },
                         new
                         {
                             Id = 7,
                             CategoryId = 7,
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 338, DateTimeKind.Local).AddTicks(1161),
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(9330),
                             ImagePath = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22100%22%20height%3D%22100%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22grey%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2250%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E100x100%3C%2Ftext%3E%3C%2Fsvg%3E",
-                            ProductName = "Fantastic Wooden Keyboard",
+                            ProductName = "Gorgeous Granite Gloves",
                             Status = 1,
-                            UnitPrice = 89.29m,
+                            UnitPrice = 274.49m,
                             UnitsInStock = 100
                         },
                         new
                         {
                             Id = 8,
                             CategoryId = 8,
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 338, DateTimeKind.Local).AddTicks(1287),
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(9443),
                             ImagePath = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22100%22%20height%3D%22100%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22grey%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2250%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E100x100%3C%2Ftext%3E%3C%2Fsvg%3E",
-                            ProductName = "Gorgeous Soft Car",
+                            ProductName = "Handcrafted Cotton Soap",
                             Status = 1,
-                            UnitPrice = 963.54m,
+                            UnitPrice = 681.46m,
                             UnitsInStock = 100
                         },
                         new
                         {
                             Id = 9,
                             CategoryId = 9,
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 338, DateTimeKind.Local).AddTicks(1390),
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(9533),
                             ImagePath = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22100%22%20height%3D%22100%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22grey%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2250%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E100x100%3C%2Ftext%3E%3C%2Fsvg%3E",
-                            ProductName = "Generic Rubber Fish",
+                            ProductName = "Generic Cotton Gloves",
                             Status = 1,
-                            UnitPrice = 574.16m,
+                            UnitPrice = 953.73m,
                             UnitsInStock = 100
                         },
                         new
                         {
                             Id = 10,
                             CategoryId = 10,
-                            CreatedDate = new DateTime(2025, 5, 28, 23, 2, 2, 338, DateTimeKind.Local).AddTicks(1525),
+                            CreatedDate = new DateTime(2025, 6, 11, 23, 27, 57, 199, DateTimeKind.Local).AddTicks(9643),
                             ImagePath = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20baseProfile%3D%22full%22%20width%3D%22100%22%20height%3D%22100%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22grey%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2250%22%20font-size%3D%2220%22%20alignment-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3E100x100%3C%2Ftext%3E%3C%2Fsvg%3E",
-                            ProductName = "Refined Wooden Pants",
+                            ProductName = "Handmade Plastic Ball",
                             Status = 1,
-                            UnitPrice = 118.65m,
+                            UnitPrice = 277.75m,
                             UnitsInStock = 100
                         });
                 });

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Project.Bll.Managers.Abstracts;
 using Project.Bll.Managers.Concretes;
 using Project.Common.Tools;
@@ -8,6 +9,7 @@ using Project.MvcUI.Models;
 using Project.MvcUI.Models.PureVms.AppUsers;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace Project.MvcUI.Controllers
 {
@@ -37,8 +39,8 @@ namespace Project.MvcUI.Controllers
 
         public IActionResult Index(int id)
         {
-           
-          
+
+
             return View();
         }
 
@@ -61,7 +63,7 @@ namespace Project.MvcUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(UserRegisterRequestModel item)
         {
-         
+
             Guid specId = Guid.NewGuid();
 
 
@@ -79,8 +81,11 @@ namespace Project.MvcUI.Controllers
             {
                 #region RolKontrolIslemleri
 
+
+                if (!await _roleManager.RoleExistsAsync("Member")) await _roleManager.CreateAsync(new() { Name = "Member" });
+
                 AppRole appRole = await _roleManager.FindByNameAsync("Member");
-                if (appRole == null) await _roleManager.CreateAsync(new() { Name = "Member" });
+
 
                 AppUserRole appUserRole = new AppUserRole()
                 {
@@ -102,20 +107,17 @@ namespace Project.MvcUI.Controllers
             return View();
         }
 
-        public IActionResult RedirectPanel()
-        {
-            return View();
-        }
 
-        public async Task<IActionResult> ConfirmEmail(Guid specId,int id)
+
+        public async Task<IActionResult> ConfirmEmail(Guid specId, int id)
         {
             AppUser appUser = await _userManager.FindByIdAsync(id.ToString());
-            if(appUser == null)
+            if (appUser == null)
             {
                 TempData["Message"] = "Kullanıcı  bulunamadı";
                 return RedirectToAction("RedirectPanel");
             }
-            else if(appUser.ActivationCode == specId)
+            else if (appUser.ActivationCode == specId)
             {
                 appUser.EmailConfirmed = true;
                 await _userManager.UpdateAsync(appUser);
@@ -126,10 +128,52 @@ namespace Project.MvcUI.Controllers
             return RedirectToAction("Register");
         }
 
+        public IActionResult RedirectPanel()
+        {
+            return View();
+        }
         public IActionResult SignIn()
         {
             return View();
         }
-       
+
+        [HttpPost]
+        public async Task<IActionResult> SignIn(UserRegisterRequestModel model)
+        {
+            AppUser appUser = await _userManager.FindByNameAsync(model.UserName);
+
+            SignInResult result = await _signInManager.PasswordSignInAsync(appUser, model.Password, true, true);
+
+            if (result.Succeeded)
+            {
+                //Admin,Member,Visitor,Developer
+                IList<string> roles = await _userManager.GetRolesAsync(appUser);
+                if (roles.Contains("Admin"))
+                {
+                    //route => url   Area = Admin
+                    //www.test.com/Area/Controller/Action?ide = 2
+                    return RedirectToAction("Index", "Category", new { Area = "Admin" });
+                }
+                else if (roles.Contains("Member"))
+                {
+                    return RedirectToAction("Privacy");
+                }
+
+                return RedirectToAction("Index");
+            }
+            else if (result.IsNotAllowed)
+            {
+                return RedirectToAction("MailPanel");
+            }
+
+            TempData["Message"] = "KUllanıcı bulunamadı";
+            return RedirectToAction("SignIn");
+        }
+
+        public IActionResult MailPanel()
+        {
+            return View();
+        }
+
     }
 }
