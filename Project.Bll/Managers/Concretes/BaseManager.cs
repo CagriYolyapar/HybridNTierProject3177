@@ -96,9 +96,10 @@ namespace Project.Bll.Managers.Concretes
 
         public async Task UpdateAsync(T newEntity)
         {
+            newEntity.Status = Entities.Enums.DataStatus.Updated;
+            newEntity.UpdatedDate = DateTime.Now;
             T originalEntity = await GetByIdAsync(newEntity.Id);
-            originalEntity.Status = Entities.Enums.DataStatus.Updated;
-            originalEntity.UpdatedDate = DateTime.Now;
+            
             await _repository.UpdateAsync(originalEntity, newEntity);
         }
 
