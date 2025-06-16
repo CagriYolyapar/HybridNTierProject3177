@@ -1,0 +1,31 @@
+﻿@model Cart
+
+<div class="jumbotron">
+    Ödemeniz gereken toplam tutar => @Model.TotalPrice ...Siparişi onaylamak icin lütfen <a asp-controller="Shopping" asp-action="ConfirmOrder">tıklayınız</a>
+</div>
+
+<div class="row product-list">
+    @foreach(CartItem item in Model.GetCartItems)
+    {
+        <div class="col-md-4">
+            <section class="panel">
+                <div class="pro-img-box">
+                    <img src="@item.ImagePath" />
+
+                    <a asp-action="RemoveFromCart" asp-route-id="@item.Id">  <i class="glyphicon glyphicon-minus"></i>    </a>
+                </div>
+
+                <div class="panel-body text-center">
+
+                    <h4>  <a asp-action="Index" asp-route-categoryId="@item.CategoryId" title="@item.CategoryName ürünlerini görmek icin tıklaabilirsiniz"> @item.ProductName x @item.Amount</a>    </h4>
+
+                    <p class="price">$@item.SubTotal</p>
+
+                    <a asp-action="IncreaseCartItem" asp-route-id="@item.Id">  <i class="glyphicon glyphicon-plus"></i>    </a> <br>
+                    <a asp-action="DecreaseCartItem" asp-route-id="@item.Id">  <i class="glyphicon glyphicon-minus"></i>    </a> <br>
+                </div>
+            </section>
+        </div>
+    }
+</div>
+

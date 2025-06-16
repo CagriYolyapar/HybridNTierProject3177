@@ -19,6 +19,9 @@ builder.Services.AddIdentityService();
 builder.Services.AddRepositoryServices();
 builder.Services.AddManagerServices();
 
+builder.Services.AddHttpClient(); //Eger bir API consume edilecekse HTTP client tarafında oldugumuzu Middleware'e belirtmeliyiz...
+
+
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(x =>
@@ -27,6 +30,8 @@ builder.Services.AddSession(x =>
     x.Cookie.HttpOnly = true;
     x.Cookie.IsEssential  = true;   
 });
+
+
 
 builder.Services.ConfigureApplicationCookie(x =>
 {
@@ -47,6 +52,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseSession();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -56,6 +63,6 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Register}/{id?}");
+    pattern: "{controller=Shopping}/{action=Index}/{id?}");
 
 app.Run();
