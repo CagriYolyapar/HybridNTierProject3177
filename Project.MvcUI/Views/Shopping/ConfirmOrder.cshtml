@@ -1,0 +1,97 @@
+﻿@model OrderRequestPageVm
+
+<form asp-controller="Shopping" asp-action="ConfirmOrder" method="post">
+
+
+    <div class="form-group">
+        <label class="col-2 control-label">
+            Gönderim Adresi
+        </label>
+        <div class="10">
+            <input asp-for="Order.ShippingAddress" class="form-control" />
+        </div>
+    </div>
+
+    @*
+        User.Identity.IsAuthenticated komutu eger siz bir login sistemi yapmıssanız ve o an o sistemde bulunan kişi login olmussa (Authentice olmussa) yani giriş yapmıssa true döner
+    *@
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="form-group">
+            <label class="col-2 control-label">
+                Email Adresi
+            </label>
+            <div class="10">
+                <input asp-for="Order.UserEmail" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-2 control-label">
+                İsim Soyisim
+            </label>
+            <div class="10">
+                <input asp-for="Order.UserDescription" class="form-control" />
+            </div>
+        </div>
+    }
+
+    @* <div class="form-group">
+        <label class="col-2 control-label">
+            Kart Numarası
+        </label>
+        <div class="10">
+            <input asp-for="PaymentRequestModel.CardNumber" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-2 control-label">
+           CVV
+        </label>
+        <div class="10">
+            <input asp-for="PaymentRequestModel.CVV" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-2 control-label">
+            Gecerlilik süresi (Yıl)
+        </label>
+        <div class="10">
+            <input asp-for="PaymentRequestModel.ExpiryYear" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-2 control-label">
+            Gecerlilik Süresi(Ay)
+        </label>
+        <div class="10">
+            <input asp-for="PaymentRequestModel.ExpiryMonth" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-2 control-label">
+            Kart üzerindeki isim
+        </label>
+        <div class="10">
+            <input asp-for="PaymentRequestModel.CardUserName" class="form-control" />
+        </div>
+    </div> *@
+
+    <div class="form-group">
+        <label class="col-2 control-label">
+            Onaylamak icin tıklayınız
+        </label>
+        <div class="10">
+           <button class="btn btn-primary">Onayla</button>
+        </div>
+    </div>
+
+
+</form>
+
+

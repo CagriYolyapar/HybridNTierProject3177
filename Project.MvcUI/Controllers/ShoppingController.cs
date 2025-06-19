@@ -71,6 +71,7 @@ namespace Project.MvcUI.Controllers
         void ControlCart(Cart c)
         {
             if (c.GetCartItems.Count == 0) HttpContext.Session.Remove("scart");
+          
         }
 
         public async Task<IActionResult> AddToCart(int id)
@@ -103,6 +104,91 @@ namespace Project.MvcUI.Controllers
             }
             Cart c = GetCartFromSession("scart");
             return View(c);
+        }
+
+        //Todo : Refactor Session ve Sepet işlemlerini icin yapılmalıdır
+
+        public IActionResult RemoveFromCart(int id)
+        {
+            if(GetCartFromSession("scart") != null)
+            {
+                Cart c = GetCartFromSession("scart");
+                c.RemoveFromCart(id);
+                SetCartForSession(c);
+                ControlCart(c);
+            }
+
+            return RedirectToAction("CartPage");
+        }
+
+        public IActionResult DecreaseCartItem(int id)
+        {
+            if(GetCartFromSession("scart") != null)
+            {
+                Cart c = GetCartFromSession("scart");
+                c.Decrease(id);
+                SetCartForSession(c);
+                ControlCart(c);
+            }
+
+            return RedirectToAction("CartPage");
+        }
+
+        public IActionResult IncreaseCartItem(int id)
+        {
+            if (GetCartFromSession("scart") != null)
+            {
+                Cart c = GetCartFromSession("scart");
+                c.IncreaseCartItem(id);
+                SetCartForSession(c);
+                ControlCart(c);
+            }
+
+            return RedirectToAction("CartPage");
+        }
+
+        
+        public  IActionResult ConfirmOrder()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ConfirmOrder(OrderRequestPageVm ovm)
+        {
+            Cart c = GetCartFromSession("scart");
+
+            ovm.Order.Price = c.TotalPrice;
+
+            #region APIBankaEntegrasyonu
+
+            #endregion
+
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser appUser = await _userManager.FindByNameAsync(User.Identity.Name);
+                ovm.Order.AppUserId = appUser.Id;
+            }
+
+            await _orderManager.CreateAsync(ovm.Order); //Kesinlikle Order nesnesini veritabanına ekleyen bu kodu yazmalısınız...Cünkü Order instance'inin id'si Identity'dir. Yani ancak ve ancak veritabanına eklendiginde otomatik olarak verilir...Yani benim Order'imin Id'sinin olusması icin önce Order'in veritabanında yaratılması gerekir...
+
+            foreach(CartItem item in c.GetCartItems)
+            {
+                OrderDetail od = new();
+                od.OrderId = ovm.Order.Id;
+                od.ProductId = item.Id;
+                od.Amount = item.Amount;
+                od.UnitPrice = item.UnitPrice;
+
+                await _orderDetailManager.CreateAsync(od);
+
+                //ürün stoktan düsmeli ve productManager ürünü Update etmeli
+            }
+
+            TempData["Message"] = "Siparişiniz bize basarıyla ulasmıstır...Teşekkür ederiz";
+            HttpContext.Session.Remove("scart"); //Session'i silme kodu
+            return RedirectToAction("Index");
+
         }
     }
 }
